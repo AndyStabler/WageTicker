@@ -20,16 +20,30 @@
             <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
         </section>
         <section class="data-input">
+            <p>Lunch Start Time:</p>
+            <input type="text" name="start-time" id="lunch-start-time"value="12:00">
+            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
+        </section>
+        <section class="data-input">
+            <p>Lunch End Time:</p>
+            <input type="text" name="start-time" id="lunch-end-time"value="12:30">
+            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
+        </section>
+        <section class="data-input">
             <p>End Time rate:</p>
-            <input type="text" name="end-time" id="end-time" value="23:50">
+            <input type="text" name="end-time" id="end-time" value="23:00">
             <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
         </section>
     </section>
     <div class="your-clock">
         <h1 id="money-count">£0.00</h1>
     </div>
-    <script src="/assets/js/libs/jquery.js"></script>
-    <script src="/assets/js/flipclock/flipclock.min.js"></script>
-    <script src="assets/js/clockScriptOld.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script src="assets/js/jquery-ui-timepicker-addon.js"></script>
+    <!--<script src="assets/js/bower_components/jquery-timepicker-jt/jquery.timepicker.js"></script>-->
+    <!--<script src="/assets/js/flipclock/flipclock.min.js"></script>-->
+    <script src="assets/js/clock.js"></script>
 </body>
 </html>
