@@ -1,0 +1,152 @@
+// fonts
+$font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// colours
+$primaryColour: #5a5a5a;
+
+$titleRight: #3d8ec2;
+$totalColour: #3399cc;
+$detailsTextColour: #6f6f6f;
+$detailsColour: #e4eaef;
+$detailsInputBorderColour: #9d9d9d;
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: $font-stack;
+  color: $primaryColour;
+  font-size: 12px;
+
+}
+
+#wrapper {
+  min-height: 100%;
+}
+
+a {
+  color: $titleRight;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $totalColour;
+}
+
+.title {
+  margin: 0;
+  padding-top: 2%;
+  font-size: 5em;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  .first {
+    color: $primaryColour;
+  }
+  .second {
+    color: $titleRight;
+  }
+}
+
+#details-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  overflow: auto;
+  background-color: $detailsColour;
+  .data-input {
+    margin-top: 20%;
+  }
+  .rate-paragraph {
+    margin:0;
+    padding: 2px;
+  }
+  .currency-label {
+    color: $detailsInputBorderColour;
+    font-size: large;
+    position: absolute;
+    top: 12px;
+    left: 17px;
+  }
+}
+
+fieldset {
+  border: none;
+  margin: 5px;
+  span {
+    font-size: 1.25em;
+  }
+  p {
+    position: relative;
+    padding: 5px;
+  }
+}
+
+
+
+label.field {
+  width: 100%;
+  font-size: 2em;
+  font-weight: 200;
+  color: $detailsTextColour;
+}
+
+input.details-textbox {
+  width: 90%;
+  height: 30px;
+
+  font-size: 1.25em;
+  text-align: right;
+  color: $detailsTextColour;
+
+  padding: 3px;
+
+  -moz-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid $detailsInputBorderColour;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+input.details-textbox:focus {
+  border: 1px solid $totalColour;
+}
+
+#main-panel {
+  margin-bottom: 5%;
+  .wage-info {
+    padding-top: 10%;
+    text-align: center;
+    font-weight: lighter;
+
+    h2 {
+      font-weight: 200;
+      font-size: 2.3em;
+    }
+  }
+}
+
+#money-count {
+  margin: 3% 0 5% 0;
+  font-size: 6em;
+  font-weight: lighter;
+}
+
+.money-count-valid {
+  color: $totalColour;
+}
+
+.money-count-invalid {
+  color: $detailsColour;
+}
+
+#footer {
+  height: 5%;
+  text-align: center;
+  font-weight: 100;
+  font-size: small;
+}

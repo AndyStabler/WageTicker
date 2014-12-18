@@ -2043,7 +2043,7 @@
 	};
 
 	/**
-	 * Calls `timepicker()` on the `startTime` and `endTime` elements, and configures them to
+	 * Calls `timepicker()` on the `getStartTime` and `getEndTime` elements, and configures them to
 	 * enforce date range limits.
 	 * n.b. The input value must be correctly formatted (reformatting is not supported)
 	 * @param  {Element} startTime
@@ -2056,7 +2056,7 @@
 	};
 
 	/**
-	 * Calls `datetimepicker` on the `startTime` and `endTime` elements, and configures them to
+	 * Calls `datetimepicker` on the `getStartTime` and `getEndTime` elements, and configures them to
 	 * enforce date range limits.
 	 * @param  {Element} startTime
 	 * @param  {Element} endTime
@@ -2070,7 +2070,7 @@
 	};
 
 	/**
-	 * Calls `datepicker` on the `startTime` and `endTime` elements, and configures them to
+	 * Calls `datepicker` on the `getStartTime` and `getEndTime` elements, and configures them to
 	 * enforce date range limits.
 	 * @param  {Element} startTime
 	 * @param  {Element} endTime
@@ -2083,7 +2083,7 @@
 	};
 
 	/**
-	 * Calls `method` on the `startTime` and `endTime` elements, and configures them to
+	 * Calls `method` on the `getStartTime` and `getEndTime` elements, and configures them to
 	 * enforce date range limits.
 	 * @param  {string} method Can be used to specify the type of picker to be added
 	 * @param  {Element} startTime

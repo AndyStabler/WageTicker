@@ -1,49 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.scss"/>
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="assets/css/flipclock.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <h1>Wage Ticker</h1>
+<div id="wrapper">
     <section id="details-panel">
         <section class="data-input">
-            <p>Hourly rate:</p>
-            <input type="text" name="hourly-rate" id="hourly-rate" value="£10.00">
-            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
-        </section>
-        <section class="data-input">
-            <p>Start Time:</p>
-            <input type="text" name="start-time" id="start-time"value="9:30">
-            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
-        </section>
-        <section class="data-input">
-            <p>Lunch Start Time:</p>
-            <input type="text" name="start-time" id="lunch-start-time"value="12:00">
-            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
-        </section>
-        <section class="data-input">
-            <p>Lunch End Time:</p>
-            <input type="text" name="start-time" id="lunch-end-time"value="12:30">
-            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
-        </section>
-        <section class="data-input">
-            <p>End Time rate:</p>
-            <input type="text" name="end-time" id="end-time" value="23:00">
-            <!--pattern="^\\£?(([1-9](\\d*|\\d{0,2}(,\\d{3})*))|0)(\\.\\d{1,2})?$"-->
+            <fieldset>
+                <p class="rate-paragraph"><label class="field" for="hourly-rate">Hourly rate:</label></p>
+
+                <p class="rate-paragraph"><span class="currency-label">&pound;</span><input class="details-textbox currency-input"
+                                                                     type="number" min="0.01"
+                                                                     step="0.01"
+                                                                     value="10.00"
+                                                                     name="hourly-rate"
+                                                                     id="hourly-rate"
+                                                                     required/></p>
+
+
+                <p><label class="field" for="start-time">Start: </label><input class="details-textbox" type="text"
+                                                                               name="start-time" value="8:30"
+                                                                               id="start-time" required/>
+                </p>
+
+                <p><label class="field" for="lunch-start-time">Lunch start: </label><input class="details-textbox"
+                                                                                           type="text"
+                                                                                           value="12:00"
+                                                                                           name="lunch-start-time"
+                                                                                           id="lunch-start-time"
+                                                                                           required/>
+                </p>
+
+
+                <p><label class="field" for="lunch-end-time">Lunch end: </label><input class="details-textbox"
+                                                                                       type="text"
+                                                                                       value="13:00"
+                                                                                       name="hourly-rate"
+                                                                                       id="lunch-end-time"
+                                                                                       required/>
+                </p>
+
+
+                <p><label class="field" for="end-time">End: </label><input class="details-textbox" type="text"
+                                                                           value="16:30"
+                                                                           name="end-time"
+                                                                           id="end-time"
+                                                                           required/>
+                </p>
+            </fieldset>
         </section>
     </section>
-    <div class="your-clock">
-        <h1 id="money-count">£0.00</h1>
-    </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    <script src="assets/js/jquery-ui-timepicker-addon.js"></script>
-    <!--<script src="assets/js/bower_components/jquery-timepicker-jt/jquery.timepicker.js"></script>-->
-    <!--<script src="/assets/js/flipclock/flipclock.min.js"></script>-->
-    <script src="assets/js/clock.js"></script>
+    <section id="main-panel">
+        <h1 class="title"><span class="first">Wage</span><span class="second">Ticker</span></h1>
+        <section class="wage-info">
+            <h2 class="subheader">You've earned: </h2>
+
+            <h1 id="money-count" class="money-count-valid">£0.00</h1>
+
+            <h2 class="subheader">Good Job!</h2>
+        </section>
+    </section>
+    <section id="footer">
+        <p>Created by <a href="http://www.andystabler.co.uk">Andy Stabler</a></p>
+        <a href="https://github.com/AndyStabler/WageTicker"><img src="assets/img/GitHub-Mark-64px.png" alt="source" width="32" height="32"></a>
+    </section>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/flick/jquery-ui.css"/>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="assets/js/jquery-ui-timepicker-addon.js"></script>
+<script src="assets/js/wage-ticker.js"></script>
 </body>
 </html>

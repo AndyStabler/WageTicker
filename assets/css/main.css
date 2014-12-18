@@ -1,4 +1,110 @@
-mark.overflowText{
-    color: #cccccc;
-    background: transparent none;
-}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #5a5a5a;
+  font-size: 12px; }
+
+#wrapper {
+  min-height: 100%; }
+
+a {
+  color: #3d8ec2;
+  text-decoration: none; }
+
+a:hover {
+  color: #3399cc; }
+
+.title {
+  margin: 0;
+  padding-top: 2%;
+  font-size: 5em;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: lighter; }
+  .title .first {
+    color: #5a5a5a; }
+  .title .second {
+    color: #3d8ec2; }
+
+#details-panel {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 20%;
+  overflow: auto;
+  background-color: #e4eaef; }
+  #details-panel .data-input {
+    margin-top: 20%; }
+  #details-panel .rate-paragraph {
+    margin: 0;
+    padding: 2px; }
+  #details-panel .currency-label {
+    color: #9d9d9d;
+    font-size: large;
+    position: absolute;
+    top: 12px;
+    left: 17px; }
+
+fieldset {
+  border: none;
+  margin: 5px; }
+  fieldset span {
+    font-size: 1.25em; }
+  fieldset p {
+    position: relative;
+    padding: 5px; }
+
+label.field {
+  width: 100%;
+  font-size: 2em;
+  font-weight: 200;
+  color: #6f6f6f; }
+
+input.details-textbox {
+  width: 90%;
+  height: 30px;
+  font-size: 1.25em;
+  text-align: right;
+  color: #6f6f6f;
+  padding: 3px;
+  -moz-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 1px solid #9d9d9d;
+  outline: 0;
+  -webkit-appearance: none; }
+
+input.details-textbox:focus {
+  border: 1px solid #3399cc; }
+
+#main-panel {
+  margin-bottom: 5%; }
+  #main-panel .wage-info {
+    padding-top: 10%;
+    text-align: center;
+    font-weight: lighter; }
+    #main-panel .wage-info h2 {
+      font-weight: 200;
+      font-size: 2.3em; }
+
+#money-count {
+  margin: 3% 0 5% 0;
+  font-size: 6em;
+  font-weight: lighter; }
+
+.money-count-valid {
+  color: #3399cc; }
+
+.money-count-invalid {
+  color: #e4eaef; }
+
+#footer {
+  height: 5%;
+  text-align: center;
+  font-weight: 100;
+  font-size: small; }
+
+/*# sourceMappingURL=main.css.map */
