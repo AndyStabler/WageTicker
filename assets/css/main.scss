@@ -10,7 +10,6 @@ $detailsTextColour: #6f6f6f;
 $detailsColour: #e4eaef;
 $detailsInputBorderColour: #9d9d9d;
 
-
 body, html {
   height: 100%;
   margin: 0;
@@ -35,11 +34,9 @@ a:hover {
 
 .title {
   margin: 0;
-  padding-top: 2%;
   font-size: 5em;
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: lighter;
+  font-weight: 200;
   .first {
     color: $primaryColour;
   }
@@ -49,32 +46,41 @@ a:hover {
 }
 
 #details-panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 20%;
-  overflow: auto;
-  background-color: $detailsColour;
-  .data-input {
-    margin-top: 20%;
+//  @media (min-width: 800px) {
+  @media (min-width: 800px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    //width: 250px;
+    width:20%;
+    overflow: auto;
+    .data-input {
+      margin-top: 35%;
+    }
   }
+  @media (max-width: 800px) {
+    margin-top: 5%;
+  }
+
+  background-color: $detailsColour;
+
   .rate-paragraph {
-    margin:0;
+    margin: 0;
     padding: 2px;
   }
   .currency-label {
     color: $detailsInputBorderColour;
     font-size: large;
     position: absolute;
-    top: 12px;
+    top: 11px;
     left: 17px;
   }
 }
 
 fieldset {
   border: none;
-  margin: 5px;
+  margin: 0;
   span {
     font-size: 1.25em;
   }
@@ -83,8 +89,6 @@ fieldset {
     padding: 5px;
   }
 }
-
-
 
 label.field {
   width: 100%;

@@ -17,26 +17,29 @@ a:hover {
 
 .title {
   margin: 0;
-  padding-top: 2%;
   font-size: 5em;
   text-align: center;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: lighter; }
+  font-weight: 200; }
   .title .first {
     color: #5a5a5a; }
   .title .second {
     color: #3d8ec2; }
 
 #details-panel {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 20%;
-  overflow: auto;
   background-color: #e4eaef; }
-  #details-panel .data-input {
-    margin-top: 20%; }
+  @media (min-width: 800px) {
+    #details-panel {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 20%;
+      overflow: auto; }
+      #details-panel .data-input {
+        margin-top: 35%; } }
+  @media (max-width: 800px) {
+    #details-panel {
+      margin-top: 5%; } }
   #details-panel .rate-paragraph {
     margin: 0;
     padding: 2px; }
@@ -44,12 +47,12 @@ a:hover {
     color: #9d9d9d;
     font-size: large;
     position: absolute;
-    top: 12px;
+    top: 11px;
     left: 17px; }
 
 fieldset {
   border: none;
-  margin: 5px; }
+  margin: 0; }
   fieldset span {
     font-size: 1.25em; }
   fieldset p {
