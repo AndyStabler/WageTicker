@@ -16,7 +16,6 @@ body, html {
   font-family: $font-stack;
   color: $primaryColour;
   font-size: 12px;
-
 }
 
 #wrapper {
@@ -33,7 +32,7 @@ a:hover {
 }
 
 .title {
-  margin: 0;
+  margin-top: 20px;
   font-size: 5em;
   text-align: center;
   font-weight: 200;
@@ -46,22 +45,13 @@ a:hover {
 }
 
 #details-panel {
-//  @media (min-width: 800px) {
-  @media (min-width: 800px) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    //width: 250px;
+    height:100%;
+    float: left;
     width:20%;
     overflow: auto;
     .data-input {
       margin-top: 35%;
     }
-  }
-  @media (max-width: 800px) {
-    margin-top: 5%;
-  }
 
   background-color: $detailsColour;
 
@@ -100,13 +90,10 @@ label.field {
 input.details-textbox {
   width: 90%;
   height: 30px;
-
   font-size: 1.25em;
   text-align: right;
   color: $detailsTextColour;
-
   padding: 3px;
-
   -moz-border-radius: 2px;
   -khtml-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -121,12 +108,12 @@ input.details-textbox:focus {
 }
 
 #main-panel {
-  margin-bottom: 5%;
+  float: left;
+  width: 60%;
   .wage-info {
-    padding-top: 10%;
+    padding-top: 12%;
     text-align: center;
     font-weight: lighter;
-
     h2 {
       font-weight: 200;
       font-size: 2.3em;
@@ -149,7 +136,9 @@ input.details-textbox:focus {
 }
 
 #footer {
+  clear: both;
   height: 5%;
+  margin-top: 10%;
   text-align: center;
   font-weight: 100;
   font-size: small;

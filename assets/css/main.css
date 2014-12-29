@@ -16,7 +16,7 @@ a:hover {
   color: #3399cc; }
 
 .title {
-  margin: 0;
+  margin-top: 20px;
   font-size: 5em;
   text-align: center;
   font-weight: 200; }
@@ -26,20 +26,13 @@ a:hover {
     color: #3d8ec2; }
 
 #details-panel {
+  height: 100%;
+  float: left;
+  width: 20%;
+  overflow: auto;
   background-color: #e4eaef; }
-  @media (min-width: 800px) {
-    #details-panel {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      width: 20%;
-      overflow: auto; }
-      #details-panel .data-input {
-        margin-top: 35%; } }
-  @media (max-width: 800px) {
-    #details-panel {
-      margin-top: 5%; } }
+  #details-panel .data-input {
+    margin-top: 35%; }
   #details-panel .rate-paragraph {
     margin: 0;
     padding: 2px; }
@@ -84,9 +77,10 @@ input.details-textbox:focus {
   border: 1px solid #3399cc; }
 
 #main-panel {
-  margin-bottom: 5%; }
+  float: left;
+  width: 60%; }
   #main-panel .wage-info {
-    padding-top: 10%;
+    padding-top: 12%;
     text-align: center;
     font-weight: lighter; }
     #main-panel .wage-info h2 {
@@ -105,7 +99,9 @@ input.details-textbox:focus {
   color: #e4eaef; }
 
 #footer {
+  clear: both;
   height: 5%;
+  margin-top: 10%;
   text-align: center;
   font-weight: 100;
   font-size: small; }
