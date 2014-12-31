@@ -136,6 +136,19 @@ Ticker.prototype.tick = function () {
 };
 
 /**
+ * If the user enters a single value for a time, change it so it can be recognised as a time value (add :00)
+ */
+Ticker.prototype.formatDates = function() {
+    "use strict";
+    var reg = /^\d+$/;
+    if (reg.test(this.start.value)) this.start.value += ":00";
+    if (reg.test(this.lunchStart.value)) this.lunchStart.value += ":00";
+    if (reg.test(this.lunchEnd.value)) this.lunchEnd.value += ":00";
+    if (reg.test(this.end.value)) this.end.value += ":00";
+
+};
+
+/**
  * Removes the currency symbols and commas from a string
  * @param cur string which may have the unwanted characters
  * @returns {XML|string|void} new string that doesn't have unwanted characters
@@ -180,6 +193,7 @@ $(document).ready(function () {
 
     // update the total every second
     setInterval(function () {
+        ticker.formatDates();
         if (!ticker.checkTimes() || ticker.getRateValue() <= 0.00) {
             $("#money-count").removeClass("money-count-valid").addClass("money-count-invalid").text("£0.00");
         }
