@@ -172,6 +172,11 @@ function formatTime(inputElement) {
 
 $(document).ready(function () {
     "use strict"
+    // highlight input boxes when they're selected - user most likely wants to change the original values
+    $('input[type=text], input[type=number]').on("click", function () {
+        $(this).select();
+    });
+
     var hourlyRate = $('#hourly-rate');
     var startTime = $('#start-time');
     var lunchStart = $('#lunch-start-time');
@@ -179,16 +184,16 @@ $(document).ready(function () {
     var endTime = $('#end-time');
 
     startTime.timepicker().blur(function () {
-        formatTime(startTime)
+        formatTime($(this))
     });
     lunchStart.timepicker().blur(function () {
-        formatTime(lunchStart)
+        formatTime($(this))
     });
     lunchEnd.timepicker().blur(function () {
-        formatTime(lunchEnd)
+        formatTime($(this))
     });
     endTime.timepicker().blur(function () {
-        formatTime(endTime)
+        formatTime($(this))
     });
 
     var ticker = new Ticker(hourlyRate, startTime, lunchStart, lunchEnd, endTime);
