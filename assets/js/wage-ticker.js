@@ -21,24 +21,24 @@ function Ticker(rate, start, lunchStart, lunchEnd, end) {
 Ticker.prototype.getRateValue = function () {
     "use strict";
     // user might have put some currency character in the rate string
-    var rateVal = removeCurrency(this.rate.value);
+    var rateVal = removeCurrency(this.rate.val());
     return isNaN(rateVal) ? 0.00 : +rateVal;
 };
 Ticker.prototype.getStartTime = function () {
     var now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.start.value)[0], splitOnColon(this.start.value)[1]);
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.start.val())[0], splitOnColon(this.start.val())[1]);
 };
 Ticker.prototype.getLunchStartTime = function () {
     var now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.lunchStart.value)[0], splitOnColon(this.lunchStart.value)[1]);
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.lunchStart.val())[0], splitOnColon(this.lunchStart.val())[1]);
 };
 Ticker.prototype.getLunchEndTime = function () {
     var now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.lunchEnd.value)[0], splitOnColon(this.lunchEnd.value)[1]);
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.lunchEnd.val())[0], splitOnColon(this.lunchEnd.val())[1]);
 };
 Ticker.prototype.getEndTime = function () {
     var now = new Date();
-    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.end.value)[0], splitOnColon(this.end.value)[1]);
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate(), splitOnColon(this.end.val())[0], splitOnColon(this.end.val())[1]);
 };
 
 Ticker.prototype.isMorning = function (now) {
@@ -97,6 +97,7 @@ Ticker.prototype.msRate = function () {
     return this.getRateValue() / 60.0 / 60.0 / 1000.0
 };
 
+
 /**
  * Validates times make sense - i.e. start time before end time
  * @returns {boolean}
@@ -135,18 +136,6 @@ Ticker.prototype.tick = function () {
     return this.total = this.getMorningTotal(now) + this.afternoonTotal(now);
 };
 
-/**
- * If the user enters a single value for a time, change it so it can be recognised as a time value (add :00)
- */
-Ticker.prototype.formatDates = function() {
-    "use strict";
-    var reg = /^\d+$/;
-    if (reg.test(this.start.value)) this.start.value += ":00";
-    if (reg.test(this.lunchStart.value)) this.lunchStart.value += ":00";
-    if (reg.test(this.lunchEnd.value)) this.lunchEnd.value += ":00";
-    if (reg.test(this.end.value)) this.end.value += ":00";
-
-};
 
 /**
  * Removes the currency symbols and commas from a string
@@ -175,30 +164,40 @@ Date.prototype.isValid = function () {
     return !isNaN(this.getTime());
 };
 
+function formatTime(inputElement) {
+    "use strict";
+    if (/^\d+$/.test(inputElement.val()))
+        inputElement.val(inputElement.val() + ":00");
+}
+
 $(document).ready(function () {
     "use strict"
+    var hourlyRate = $('#hourly-rate');
+    var startTime = $('#start-time');
+    var lunchStart = $('#lunch-start-time');
+    var lunchEnd = $('#lunch-end-time');
+    var endTime = $('#end-time');
 
-    $('#start-time').timepicker();
-    $('#lunch-start-time').timepicker();
-    $('#lunch-end-time').timepicker();
-    $('#end-time').timepicker();
+    startTime.timepicker().blur(function () {
+        formatTime(startTime)
+    });
+    lunchStart.timepicker().blur(function () {
+        formatTime(lunchStart)
+    });
+    lunchEnd.timepicker().blur(function () {
+        formatTime(lunchEnd)
+    });
+    endTime.timepicker().blur(function () {
+        formatTime(endTime)
+    });
 
-    var rate = document.getElementById("hourly-rate");
-
-    var startTime = document.getElementById("start-time");
-    var lunchStart = document.getElementById("lunch-start-time");
-    var lunchEnd = document.getElementById("lunch-end-time");
-    var endTime = document.getElementById("end-time");
-    var ticker = new Ticker(rate, startTime, lunchStart, lunchEnd, endTime);
+    var ticker = new Ticker(hourlyRate, startTime, lunchStart, lunchEnd, endTime);
 
     // update the total every second
     setInterval(function () {
-        ticker.formatDates();
-        if (!ticker.checkTimes() || ticker.getRateValue() <= 0.00) {
+        if (!ticker.checkTimes() || ticker.getRateValue() <= 0.00)
             $("#money-count").removeClass("money-count-valid").addClass("money-count-invalid").text("£0.00");
-        }
-        else {
+        else
             $("#money-count").removeClass("money-count-invalid").addClass("money-count-valid").text("£" + parseFloat(ticker.tick()).toFixed(2));
-        }
     }, 1000);
 });
