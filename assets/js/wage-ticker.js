@@ -8,8 +8,9 @@
  * @param end element containing the end time
  * @constructor
  */
-function Ticker(rate, start, lunchStart, lunchEnd, end) {
+function Ticker(currency, rate, start, lunchStart, lunchEnd, end) {
     "use strict";
+    this.currency = currency;
     this.rate = rate;
     this.start = start;
     this.lunchStart = lunchStart;
@@ -18,11 +19,18 @@ function Ticker(rate, start, lunchStart, lunchEnd, end) {
     this.total = 0.00;
 }
 
+Ticker.prototype.getCurrencySymbol = function () {
+    "use strict";
+    return this.currency.children("option:selected").text();
+};
+
 Ticker.prototype.getRateValue = function () {
     "use strict";
+    // TODO: Do some stuff here to decode the value based on the locale of the user
+
     // user might have put some currency character in the rate string
     var rateVal = removeCurrency(this.rate.val());
-    return isNaN(rateVal) ? 0.00 : +rateVal;
+    return isNaN(+rateVal) ? 0.00 : +rateVal;
 };
 Ticker.prototype.getStartTime = function () {
     var now = new Date();
@@ -110,6 +118,17 @@ Ticker.prototype.checkTimes = function () {
         this.getLunchEndTime() < this.getEndTime();
 };
 
+
+Ticker.prototype.formatTotal = function () {
+    "use strict";
+    // euro value use comma as integer/fraction separator
+    var euros = this.getCurrencySymbol() === '€';
+    var sectionsDel = euros ? '.' : ',';
+    var decimalDel = euros ? ',' : '.';
+
+    return this.getCurrencySymbol() + this.total.format(2, 3, sectionsDel, decimalDel);
+};
+
 /**
  * Calculates the current total earned based on the rate and current time
  * @returns {number} total earned so far
@@ -134,6 +153,21 @@ Ticker.prototype.tick = function () {
     if (this.isMorning(now)) return this.total = this.getMorningTotal(now);
     // is afternoon - return current total
     return this.total = this.getMorningTotal(now) + this.afternoonTotal(now);
+};
+
+/**
+ * Number.prototype.format(n, x, s, c)
+ *
+ * @param integer n: length of decimal
+ * @param integer x: length of whole part
+ * @param mixed   s: sections delimiter
+ * @param mixed   c: decimal delimiter
+ */
+Number.prototype.format = function (n, x, s, c) {
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\D' : '$') + ')',
+        num = this.toFixed(Math.max(0, ~~n));
+
+    return (c ? num.replace('.', c) : num).replace(new RegExp(re, 'g'), '$&' + (s || ','));
 };
 
 
@@ -177,32 +211,58 @@ $(document).ready(function () {
         $(this).select();
     });
 
+    var currency = $('#select-currency');
     var hourlyRate = $('#hourly-rate');
     var startTime = $('#start-time');
     var lunchStart = $('#lunch-start-time');
     var lunchEnd = $('#lunch-end-time');
     var endTime = $('#end-time');
 
+    currency.change(function () {
+        update(ticker)
+    });
+    hourlyRate.keyup(function () {
+        update(ticker)
+    });
     startTime.timepicker().blur(function () {
-        formatTime($(this))
+        formatTime($(this));
+        update(ticker);
     });
     lunchStart.timepicker().blur(function () {
-        formatTime($(this))
+        formatTime($(this));
+        update(ticker);
     });
     lunchEnd.timepicker().blur(function () {
-        formatTime($(this))
+        formatTime($(this));
+        update(ticker);
     });
     endTime.timepicker().blur(function () {
-        formatTime($(this))
+        formatTime($(this));
+        update(ticker);
     });
 
-    var ticker = new Ticker(hourlyRate, startTime, lunchStart, lunchEnd, endTime);
+    var ticker = new Ticker(currency, hourlyRate, startTime, lunchStart, lunchEnd, endTime);
 
     // update the total every second
     setInterval(function () {
-        if (!ticker.checkTimes() || ticker.getRateValue() <= 0.00)
-            $("#money-count").removeClass("money-count-valid").addClass("money-count-invalid").text("£0.00");
-        else
-            $("#money-count").removeClass("money-count-invalid").addClass("money-count-valid").text("£" + parseFloat(ticker.tick()).toFixed(2));
+        update(ticker);
     }, 1000);
 });
+
+function update(ticker) {
+    "use strict";
+    if (!ticker.checkTimes() || ticker.getRateValue() <= 0.00) {
+        ticker.total = 0;
+        $("#money-count")
+            .removeClass("money-count-valid")
+            .addClass("money-count-invalid")
+            .text(ticker.formatTotal());
+    }
+    else {
+        ticker.tick();
+        $("#money-count")
+            .removeClass("money-count-invalid")
+            .addClass("money-count-valid")
+            .text(ticker.formatTotal());
+    }
+}
