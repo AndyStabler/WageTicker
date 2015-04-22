@@ -118,10 +118,14 @@ Ticker.prototype.checkTimes = function () {
         this.getLunchEndTime() < this.getEndTime();
 };
 
-
+/**
+ * Formats the current total to a currency value with the appropriate currency symbol and delimiters.
+ * @returns {String} formatted total
+ */
 Ticker.prototype.formatTotal = function () {
     "use strict";
     // euro value use comma as integer/fraction separator
+    // TODO: Ireland use the euro, but don't use a comma to separate integer the fraction parts, e.g. €2.50
     var euros = this.getCurrencySymbol() === '€';
     var sectionsDel = euros ? '.' : ',';
     var decimalDel = euros ? ',' : '.';
