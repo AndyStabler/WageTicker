@@ -45,17 +45,15 @@ a:hover {
 }
 
 #details-panel {
-    height:100%;
-    float: left;
-    width:20%;
-    overflow: auto;
-    .data-input {
-      margin-top: 35%;
-    }
-
+  height: 100%;
+  float: left;
+  width: 20%;
+  overflow: auto;
+  .data-input {
+    margin-top: 35%;
+  }
   background-color: $detailsColour;
-
-  .rate-paragraph {
+  .rate {
     margin: 0;
     padding: 2px;
   }
@@ -68,11 +66,124 @@ a:hover {
   }
 }
 
+#select-currency-parent-parent {
+  position: absolute;
+//  left:17px;
+  height: 90%;
+}
+
+#select-currency {
+  width: 60px;
+//  min-width: 50px;
+  height: 100%;
+  font-size: large;
+  margin: 0;
+  padding: 0.5em;
+  background: transparent;
+//  background-color: transparent;
+  //color: #393939;
+  opacity: 1;
+  color: $detailsInputBorderColour;
+  border: 0 none;
+  border-radius: 0px;
+}
+
+#select-currency-parent {
+  height: 100%;
+//  top: 5%;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+#select-currency-parent:before, #select-currency-parent:after {
+  border: none;
+  height: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+}
+
+#select-currency-parent:before {
+  height: 95%;
+//  top: 1px;
+  bottom: 0;
+  right: 0;
+  //top: 0;
+  width: 2em;
+//  background-color: #3D8EC2;
+  background-color: $detailsInputBorderColour;
+  border: 1px solid $detailsInputBorderColour;
+}
+
+#select-currency-parent:after {
+  height: 100%;
+  content: "▼";
+  font-size: 0.7em;
+  height: 1em;
+  line-height: 1;
+//  margin-top: -0.5em;
+  right: 1.2em;
+  top: 40%;
+//  color: #fff;
+  color: #ffffff;
+}
+
+//
+//#select-currency-parent {
+//  position: absolute;
+//
+//  //vertical-align: middle;
+////  width: 70px;
+////  overflow: hidden;
+//  //
+//  //    select::-ms-expand {
+//  //      display: none;
+//  //    }
+//
+//  #select-currency {
+//    //      -moz-appearance:none;
+//    //    text-indent: 0.01px;
+//    //    text-overflow: '';
+//
+////    width: 100px;
+//    color: $detailsInputBorderColour;
+//    //      background: transparent;
+//    //border: none;
+//    font-size: large;
+////    position: absolute;
+////    top: 11px;
+//
+//
+//    //height:38px;
+//    left: 17px;
+//
+//    -webkit-appearance: none;
+////    -moz-appearance: none;
+//    border: none;
+//    appearance: none;
+//    background: transparent;// url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat left center;
+//
+//
+//
+//    //      -webkit-appearance: none;
+//    //      -moz-appearance: none;
+//    //    text-indent: 1px;
+//    //    text-overflow: '';
+//
+//  }
+//
+//  label{
+//    text-align: right;
+//  }
+//
+//}
+
 fieldset {
   border: none;
   margin: 0;
   span {
-    font-size: 1.25em;
+//    font-size: 1.25em;
   }
   p {
     position: relative;

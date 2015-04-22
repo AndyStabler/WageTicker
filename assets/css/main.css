@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body, html {
   height: 100%;
   margin: 0;
@@ -33,7 +34,7 @@ a:hover {
   background-color: #e4eaef; }
   #details-panel .data-input {
     margin-top: 35%; }
-  #details-panel .rate-paragraph {
+  #details-panel .rate {
     margin: 0;
     padding: 2px; }
   #details-panel .currency-label {
@@ -43,11 +44,56 @@ a:hover {
     top: 11px;
     left: 17px; }
 
+#select-currency-parent-parent {
+  position: absolute;
+  height: 90%; }
+
+#select-currency {
+  width: 60px;
+  height: 100%;
+  font-size: large;
+  margin: 0;
+  padding: 0.5em;
+  background: transparent;
+  opacity: 1;
+  color: #9d9d9d;
+  border: 0 none;
+  border-radius: 0px; }
+
+#select-currency-parent {
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle; }
+
+#select-currency-parent:before, #select-currency-parent:after {
+  border: none;
+  height: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute; }
+
+#select-currency-parent:before {
+  height: 95%;
+  bottom: 0;
+  right: 0;
+  width: 2em;
+  background-color: #9d9d9d;
+  border: 1px solid #9d9d9d; }
+
+#select-currency-parent:after {
+  height: 100%;
+  content: "▼";
+  font-size: 0.7em;
+  height: 1em;
+  line-height: 1;
+  right: 1.2em;
+  top: 40%;
+  color: #ffffff; }
+
 fieldset {
   border: none;
   margin: 0; }
-  fieldset span {
-    font-size: 1.25em; }
   fieldset p {
     position: relative;
     padding: 5px; }
