@@ -28,59 +28,71 @@
 
 <section id="details-panel">
     <section class="data-input">
-        <fieldset>
-            <p class="rate"><label class="field" for="hourly-rate">Hourly rate:</label></p>
 
-            <p class="rate" id="rate-input">
-                <span id="select-currency-parent-parent">
-                    <span id="select-currency-parent">
-                        <select id="select-currency">
-                            <option value="pound">&pound;</option>
-                            <option value="dollar">&dollar;</option>
-                            <option value="euro">&euro;</option>
-                        </select>
-                    </span>
-                </span>
-                <input
-                        class="details-textbox currency-input"
-                        type="number"
-                        step="any"
-                        min="0.01"
-                        value="10.00"
-                        name="hourly-rate"
-                        id="hourly-rate"
-                        required></p>
+        <div class="field">
 
-            <p><label class="field" for="start-time">Start time: </label><input class="details-textbox" type="text"
-                                                                                name="start-time" value="9:00"
-                                                                                id="start-time" required>
-            </p>
+            <label for="hourly-rate">Hourly rate:</label>
 
-            <p><label class="field" for="lunch-start-time">Lunch start: </label><input class="details-textbox"
-                                                                                       type="text"
-                                                                                       value="12:00"
-                                                                                       name="lunch-start-time"
-                                                                                       id="lunch-start-time"
-                                                                                       required>
-            </p>
+            <div id="rate">
+                <div id="currencies">
+                    <p id="selected-currency">&pound;</p>
 
+                    <div id="available-currencies">
+                        <p>&pound;</p>
 
-            <p><label class="field" for="lunch-end-time">Lunch end: </label><input class="details-textbox"
-                                                                                   type="text"
-                                                                                   value="12:30"
-                                                                                   name="hourly-rate"
-                                                                                   id="lunch-end-time"
-                                                                                   required>
-            </p>
+                        <p>&dollar;</p>
 
+                        <p>&euro;</p>
+                    </div>
+                </div>
 
-            <p><label class="field" for="end-time">End time: </label><input class="details-textbox" type="text"
-                                                                            value="17:00"
-                                                                            name="end-time"
-                                                                            id="end-time"
-                                                                            required>
-            </p>
-        </fieldset>
+                <input class="details-textbox currency-input"
+                       type="number"
+                       step="any"
+                       min="0.01"
+                       value="10.00"
+                       name="hourly-rate"
+                       id="hourly-rate"
+                       required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="start-time">Start time: </label>
+            <input class="details-textbox" type="text"
+                   name="start-time" value="9:00"
+                   id="start-time" required>
+        </div>
+
+        <div class="field">
+            <label for="lunch-start-time">Lunch start: </label>
+            <input class="details-textbox"
+                   type="text"
+                   value="12:00"
+                   name="lunch-start-time"
+                   id="lunch-start-time"
+                   required>
+        </div>
+
+        <div class="field">
+            <label for="lunch-end-time">Lunch end: </label>
+            <input class="details-textbox"
+                   type="text"
+                   value="12:30"
+                   name="hourly-rate"
+                   id="lunch-end-time"
+                   required>
+        </div>
+
+        <div class="field">
+            <label for="end-time">End time: </label>
+            <input class="details-textbox" type="text"
+                   value="17:00"
+                   name="end-time"
+                   id="end-time"
+                   required>
+        </div>
+
     </section>
 </section>
 <section id="main-panel">
