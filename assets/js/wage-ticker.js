@@ -182,6 +182,7 @@ Number.prototype.format = function (n, x, s, c) {
  */
 function removeCurrency(cur) {
     "use strict";
+    // TODO:this might be a problem... what if €50,70? would return 5070
     return cur.replace(/[£$€,]+/g, "");
 }
 
