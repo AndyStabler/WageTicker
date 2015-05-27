@@ -8,6 +8,11 @@ function formatTime(inputElement) {
         inputElement.val(inputElement.val() + ":00");
 }
 
+$(window).resize(function () {
+    // Resizing the window causes the background colour on details panel
+    // to disappear/flicker. Hiding then showing forces a repaint, which solves the issue. Weird...
+    $('html').hide().show(0);
+});
 $(document).ready(function () {
     "use strict"
     // highlight input boxes when they're selected - user most likely wants to change the original values
