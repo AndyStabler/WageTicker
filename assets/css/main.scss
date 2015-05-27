@@ -46,10 +46,60 @@ a:hover {
 
 #details-panel {
   height: 100%;
-  float: left;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
   width: 20%;
-  overflow: auto;
   background-color: $detailsColour;
+  z-index: 1;
+}
+
+@media only screen and (max-device-width: 340px) {
+  #details-panel {
+    position: absolute;
+    width: 50%;
+    background-color: $detailsColour;
+
+  }
+}
+
+#details-toggle {
+  display: block;
+  position: fixed;
+  top: 50px;
+
+  background-color: $detailsColour;
+
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 20px;
+
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 1;
+
+  img {
+    width: 64px;
+  }
+}
+
+.details-toggle-max {
+  left: 20% !important;
+}
+
+@media only screen and (max-device-width: 340px) {
+  #details-toggle {
+    img {
+      width: 128px;
+    }
+  }
+
+  .details-toggle-max {
+    left: 50% !important;
+  }
 }
 
 .data-input {
@@ -120,7 +170,6 @@ div {
   left: 38px;
 }
 
-
 .field {
   padding: 10px;
   label {
@@ -149,12 +198,17 @@ div {
 }
 
 #main-panel {
-  float: left;
-  width: 60%;
+  width: 100%;
+}
+
+@media only screen and (max-device-width: 340px) {
+  #main-panel {
+    width: 100%;
+  }
 }
 
 .wage-info {
-  padding-top: 12%;
+  padding-top: 5%;
   text-align: center;
   font-weight: lighter;
   h2 {
@@ -183,5 +237,11 @@ div {
   margin-top: 10%;
   text-align: center;
   font-weight: 100;
-  font-size: small;
+}
+
+@media only screen and (max-device-width: 340px) {
+  body, html {
+    font-size: 125%;
+    line-height: 1.5;
+  }
 }

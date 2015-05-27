@@ -28,11 +28,43 @@ a:hover {
 
 #details-panel {
   height: 100%;
-  float: left;
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
   width: 20%;
-  overflow: auto;
-  background-color: #e4eaef; }
+  background-color: #e4eaef;
+  z-index: 1; }
 
+@media only screen and (max-device-width: 340px) {
+  #details-panel {
+    position: absolute;
+    width: 50%;
+    background-color: #e4eaef; } }
+#details-toggle {
+  display: block;
+  position: fixed;
+  top: 50px;
+  background-color: #e4eaef;
+  -webkit-border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-topright: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 1; }
+  #details-toggle img {
+    width: 64px; }
+
+.details-toggle-max {
+  left: 20% !important; }
+
+@media only screen and (max-device-width: 340px) {
+  #details-toggle img {
+    width: 128px; }
+
+  .details-toggle-max {
+    left: 50% !important; } }
 .data-input {
   margin-top: 35%; }
 
@@ -111,11 +143,13 @@ div {
   border: 1px solid #3399cc; }
 
 #main-panel {
-  float: left;
-  width: 60%; }
+  width: 100%; }
 
+@media only screen and (max-device-width: 340px) {
+  #main-panel {
+    width: 100%; } }
 .wage-info {
-  padding-top: 12%;
+  padding-top: 5%;
   text-align: center;
   font-weight: lighter; }
   .wage-info h2 {
@@ -138,7 +172,11 @@ div {
   height: 5%;
   margin-top: 10%;
   text-align: center;
-  font-weight: 100;
-  font-size: small; }
+  font-weight: 100; }
+
+@media only screen and (max-device-width: 340px) {
+  body, html {
+    font-size: 125%;
+    line-height: 1.5; } }
 
 /*# sourceMappingURL=main.css.map */
