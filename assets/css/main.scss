@@ -49,17 +49,19 @@ a:hover {
   float: left;
   width: 20%;
   overflow: auto;
-  .data-input {
-    margin-top: 35%;
-  }
   background-color: $detailsColour;
-  .currency-label {
-    color: $detailsInputBorderColour;
-    font-size: large;
-    position: absolute;
-    top: 11px;
-    left: 17px;
-  }
+}
+
+.data-input {
+  margin-top: 35%;
+}
+
+.currency-label {
+  color: $detailsInputBorderColour;
+  font-size: large;
+  position: absolute;
+  top: 11px;
+  left: 17px;
 }
 
 div {
@@ -137,10 +139,6 @@ div {
   text-align: right;
   color: $detailsTextColour;
   padding: 3px;
-  -moz-border-radius: 2px;
-  -khtml-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
   border: 1px solid $detailsInputBorderColour;
   outline: 0;
   -webkit-appearance: none;
