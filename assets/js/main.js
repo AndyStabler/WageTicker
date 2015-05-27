@@ -24,6 +24,21 @@ $('#available-currencies').children().on('click', function (e) {
     update(ticker);
 });
 
+$('#details-toggle').on('click', function (e) {
+    "use strict";
+    var details = $('#details-panel');
+    var detailsToggle = $('#details-toggle');
+    if (details.is(':visible')) {
+        details.hide();
+        detailsToggle.css('left', '0');
+        detailsToggle.removeClass('details-toggle-max');
+        document.body.style.backgroundColor = 'white';
+    } else {
+        details.show();
+        detailsToggle.addClass('details-toggle-max');
+    }
+});
+
 // when we click anywhere on the document, and the available currencies div is visible, hide it.
 $(document).on('click', function (e) {
     var availableCurs = $("#available-currencies");
