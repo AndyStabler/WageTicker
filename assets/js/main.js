@@ -2,61 +2,65 @@
  * Created by andy on 25/05/15.
  */
 
-function formatTime(inputElement) {
-    "use strict";
-    if (/^\d+$/.test(inputElement.val()))
-        inputElement.val(inputElement.val() + ":00");
-}
-
 $(window).resize(function () {
     // Resizing the window causes the background colour on details panel
     // to disappear/flicker. Hiding then showing forces a repaint, which solves the issue. Weird...
     $('html').hide().show(0);
 });
-$(document).ready(function () {
-    "use strict"
-    // highlight input boxes when they're selected - user most likely wants to change the original values
-    $('input[type=text], input[type=number]').on("click", function () {
-        $(this).select();
-    });
 
-    var currency = $('#select-currency');
-    var hourlyRate = $('#hourly-rate');
-    var startTime = $('#start-time');
-    var lunchStart = $('#lunch-start-time');
-    var lunchEnd = $('#lunch-end-time');
-    var endTime = $('#end-time');
-
-    currency.change(function () {
-        update(ticker)
-    });
-    hourlyRate.keyup(function () {
-        update(ticker)
-    });
-    startTime.timepicker().blur(function () {
-        formatTime($(this));
-        update(ticker);
-    });
-    lunchStart.timepicker().blur(function () {
-        formatTime($(this));
-        update(ticker);
-    });
-    lunchEnd.timepicker().blur(function () {
-        formatTime($(this));
-        update(ticker);
-    });
-    endTime.timepicker().blur(function () {
-        formatTime($(this));
-        update(ticker);
-    });
-
-    var ticker = new Ticker(currency, hourlyRate, startTime, lunchStart, lunchEnd, endTime);
-
-    // update the total every second
-    setInterval(function () {
-        update(ticker);
-    }, 1000);
+// highlight input boxes when they're selected - user most likely wants to change the original values
+$('input').on("click", function () {
+    $(this).select();
 });
+
+// when the currencies div is clicked, toggle the available currencies div
+$('#currencies').on('click', function () {
+    $('#available-currencies').toggle();
+});
+
+// when we click anywhere on the document, and the available currencies div is visible, hide it.
+$(document).on('click', function (e) {
+    var availableCurs = $("#available-currencies");
+    if (availableCurs.is(":visible") && $(e.target).closest("#currencies").length <= 0)
+        availableCurs.hide();
+});
+
+var currency = $('#select-currency');
+var hourlyRate = $('#hourly-rate');
+var startTime = $('#start-time');
+var lunchStart = $('#lunch-start-time');
+var lunchEnd = $('#lunch-end-time');
+var endTime = $('#end-time');
+
+currency.change(function () {
+    update(ticker)
+});
+hourlyRate.keyup(function () {
+    update(ticker)
+});
+startTime.timepicker().blur(function () {
+    formatTime($(this));
+    update(ticker);
+});
+lunchStart.timepicker().blur(function () {
+    formatTime($(this));
+    update(ticker);
+});
+lunchEnd.timepicker().blur(function () {
+    formatTime($(this));
+    update(ticker);
+});
+endTime.timepicker().blur(function () {
+    formatTime($(this));
+    update(ticker);
+});
+
+var ticker = new Ticker(currency, hourlyRate, startTime, lunchStart, lunchEnd, endTime);
+
+//update the total every second
+setInterval(function () {
+    update(ticker);
+}, 1000);
 
 function update(ticker) {
     "use strict";
@@ -74,4 +78,10 @@ function update(ticker) {
             .addClass("money-count-valid")
             .text(ticker.formatTotal());
     }
+}
+
+function formatTime(inputElement) {
+    "use strict";
+    if (/^\d+$/.test(inputElement.val()))
+        inputElement.val(inputElement.val() + ":00");
 }
