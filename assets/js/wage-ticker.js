@@ -21,7 +21,7 @@ function Ticker(currency, rate, start, lunchStart, lunchEnd, end) {
 
 Ticker.prototype.getCurrencySymbol = function () {
     "use strict";
-    return this.currency.children("option:selected").text();
+    return this.currency.text();
 };
 
 Ticker.prototype.getRateValue = function () {
