@@ -18,6 +18,12 @@ $('#currencies').on('click', function () {
     $('#available-currencies').toggle();
 });
 
+$('#available-currencies').children().on('click', function (e) {
+    "use strict";
+    $('#selected-currency').text($(e.target).text());
+    update(ticker);
+});
+
 // when we click anywhere on the document, and the available currencies div is visible, hide it.
 $(document).on('click', function (e) {
     var availableCurs = $("#available-currencies");
@@ -25,7 +31,7 @@ $(document).on('click', function (e) {
         availableCurs.hide();
 });
 
-var currency = $('#select-currency');
+var currency = $('#selected-currency');
 var hourlyRate = $('#hourly-rate');
 var startTime = $('#start-time');
 var lunchStart = $('#lunch-start-time');
