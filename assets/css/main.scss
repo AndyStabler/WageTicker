@@ -53,10 +53,6 @@ a:hover {
     margin-top: 35%;
   }
   background-color: $detailsColour;
-  .rate {
-    margin: 0;
-    padding: 2px;
-  }
   .currency-label {
     color: $detailsInputBorderColour;
     font-size: large;
@@ -66,76 +62,75 @@ a:hover {
   }
 }
 
-#select-currency-parent-parent {
-  position: absolute;
-  //  left:17px;
-  height: 90%;
+div {
+  clear: both;
 }
 
-#select-currency {
-  width: 60px;
-  height: 100%;
-  font-size: large;
-  margin: 0;
-  padding: 0.5em;
-  background: transparent;
-  opacity: 1;
-  color: $detailsInputBorderColour;
-  border: 0 none;
-  border-radius: 0px;
-}
-
-#select-currency-parent {
-  height: 100%;
-  display: inline-block;
+#rate {
   position: relative;
-  vertical-align: middle;
 }
 
-#select-currency-parent:before, #select-currency-parent:after {
-  border: none;
-  height: 100%;
-  content: "";
-  pointer-events: none;
+#currencies {
+  background-color: #DADADA;
   position: absolute;
+  padding: 0;
+  z-index: 1;
+  cursor: default;
+  top: 1px;
+  left: 1px;
+
 }
 
-#select-currency-parent:before {
-  height: 95%;
-  bottom: 0;
-  right: 0;
-  width: 2em;
-  background-color: $detailsInputBorderColour;
-  border: 1px solid $detailsInputBorderColour;
-}
-
-#select-currency-parent:after {
-  content: "▼";
-  font-size: 0.7em;
-  height: 1em;
-  line-height: 1;
-  right: 1.2em;
-  top: 40%;
-  color: #ffffff;
-}
-
-fieldset {
-  border: none;
-  margin: 0;
+#available-currencies {
+  display: none;
+  position: absolute;
+  top: 36px;
+  padding: 0;
   p {
-    position: relative;
-    padding: 5px;
+    width: 55px;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.75em;
+    background-color: #CACACA;
   }
+
+  p:hover {
+    background-color: #B3B3B3 !important;
+  }
+
 }
 
-label.field {
-  width: 100%;
-  font-size: 2em;
-  font-weight: 200;
-  color: $detailsTextColour;
+#selected-currency {
+  padding: 0;
+  margin: 0;
+  width: 55px;
+  text-align: center;
+  height: 36px;
+  font-size: 1.75em;
+  line-height: 36px;
 }
 
-input.details-textbox {
+#selected-currency::after {
+  content: "▼";
+  font-size: 0.5em;
+  position: absolute;
+  left: 38px;
+}
+
+
+.field {
+  padding: 10px;
+  label {
+    width: 100%;
+    font-size: 2em;
+    font-weight: 200;
+    color: $detailsTextColour;
+  }
+
+}
+
+.details-textbox {
   width: 90%;
   height: 30px;
   font-size: 1.25em;
@@ -151,21 +146,22 @@ input.details-textbox {
   -webkit-appearance: none;
 }
 
-input.details-textbox:focus {
+.details-textbox:focus {
   border: 1px solid $totalColour;
 }
 
 #main-panel {
   float: left;
   width: 60%;
-  .wage-info {
-    padding-top: 12%;
-    text-align: center;
-    font-weight: lighter;
-    h2 {
-      font-weight: 200;
-      font-size: 2.3em;
-    }
+}
+
+.wage-info {
+  padding-top: 12%;
+  text-align: center;
+  font-weight: lighter;
+  h2 {
+    font-weight: 200;
+    font-size: 2.3em;
   }
 }
 

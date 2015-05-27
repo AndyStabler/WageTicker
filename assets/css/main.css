@@ -34,9 +34,6 @@ a:hover {
   background-color: #e4eaef; }
   #details-panel .data-input {
     margin-top: 35%; }
-  #details-panel .rate {
-    margin: 0;
-    padding: 2px; }
   #details-panel .currency-label {
     color: #9d9d9d;
     font-size: large;
@@ -44,66 +41,60 @@ a:hover {
     top: 11px;
     left: 17px; }
 
-#select-currency-parent-parent {
+div {
+  clear: both; }
+
+#rate {
+  position: relative; }
+
+#currencies {
+  background-color: #DADADA;
   position: absolute;
-  height: 90%; }
+  padding: 0;
+  z-index: 1;
+  cursor: default;
+  top: 1px;
+  left: 1px; }
 
-#select-currency {
-  width: 60px;
-  height: 100%;
-  font-size: large;
+#available-currencies {
+  display: none;
+  position: absolute;
+  top: 36px;
+  padding: 0; }
+  #available-currencies p {
+    width: 55px;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.75em;
+    background-color: #CACACA; }
+  #available-currencies p:hover {
+    background-color: #B3B3B3 !important; }
+
+#selected-currency {
+  padding: 0;
   margin: 0;
-  padding: 0.5em;
-  background: transparent;
-  opacity: 1;
-  color: #9d9d9d;
-  border: 0 none;
-  border-radius: 0px; }
+  width: 55px;
+  text-align: center;
+  height: 36px;
+  font-size: 1.75em;
+  line-height: 36px; }
 
-#select-currency-parent {
-  height: 100%;
-  display: inline-block;
-  position: relative;
-  vertical-align: middle; }
-
-#select-currency-parent:before, #select-currency-parent:after {
-  border: none;
-  height: 100%;
-  content: "";
-  pointer-events: none;
-  position: absolute; }
-
-#select-currency-parent:before {
-  height: 95%;
-  bottom: 0;
-  right: 0;
-  width: 2em;
-  background-color: #9d9d9d;
-  border: 1px solid #9d9d9d; }
-
-#select-currency-parent:after {
+#selected-currency::after {
   content: "▼";
-  font-size: 0.7em;
-  height: 1em;
-  line-height: 1;
-  right: 1.2em;
-  top: 40%;
-  color: #ffffff; }
+  font-size: 0.5em;
+  position: absolute;
+  left: 38px; }
 
-fieldset {
-  border: none;
-  margin: 0; }
-  fieldset p {
-    position: relative;
-    padding: 5px; }
+.field {
+  padding: 10px; }
+  .field label {
+    width: 100%;
+    font-size: 2em;
+    font-weight: 200;
+    color: #6f6f6f; }
 
-label.field {
-  width: 100%;
-  font-size: 2em;
-  font-weight: 200;
-  color: #6f6f6f; }
-
-input.details-textbox {
+.details-textbox {
   width: 90%;
   height: 30px;
   font-size: 1.25em;
@@ -118,19 +109,20 @@ input.details-textbox {
   outline: 0;
   -webkit-appearance: none; }
 
-input.details-textbox:focus {
+.details-textbox:focus {
   border: 1px solid #3399cc; }
 
 #main-panel {
   float: left;
   width: 60%; }
-  #main-panel .wage-info {
-    padding-top: 12%;
-    text-align: center;
-    font-weight: lighter; }
-    #main-panel .wage-info h2 {
-      font-weight: 200;
-      font-size: 2.3em; }
+
+.wage-info {
+  padding-top: 12%;
+  text-align: center;
+  font-weight: lighter; }
+  .wage-info h2 {
+    font-weight: 200;
+    font-size: 2.3em; }
 
 #money-count {
   margin: 3% 0 5% 0;
