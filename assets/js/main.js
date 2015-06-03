@@ -6,6 +6,15 @@ $(window).resize(function () {
     // Resizing the window causes the background colour on details panel
     // to disappear/flicker. Hiding then showing forces a repaint, which solves the issue. Weird...
     $('html').hide().show(0);
+
+    var details = $('#details-panel');
+    // if the details panel has been hidden, and the user has zoomed out the details-toggle burger will because of the
+    // media query, meaning the user won't be able to click the burger to bring the details-panel back!
+    // make the details panel visible when this happens.
+    if (!details.is(':visible') && (window.matchMedia("(min-width: 801px)").matches)) {
+        details.show();
+        $('#details-toggle').css('left', '50%');
+    }
 });
 
 // highlight input boxes when they're selected - user most likely wants to change the original values
