@@ -29,13 +29,11 @@ $('#details-toggle').on('click', function (e) {
     var details = $('#details-panel');
     var detailsToggle = $('#details-toggle');
     if (details.is(':visible')) {
-        details.hide();
-        detailsToggle.css('left', '0');
-        detailsToggle.removeClass('details-toggle-max');
-        document.body.style.backgroundColor = 'white';
+        details.animate({width: 'toggle'}, 300);
+        detailsToggle.animate({left: '0'}, 300);
     } else {
-        details.show();
-        detailsToggle.addClass('details-toggle-max');
+        details.animate({width: 'toggle'}, 300);
+        detailsToggle.animate({left: '50%'}, 300);
     }
 });
 
