@@ -4,6 +4,7 @@ body, html {
   margin: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #5a5a5a;
+  background-color: #5a5a5a;
   font-size: 12px; }
 
 #wrapper {
@@ -17,7 +18,8 @@ a:hover {
   color: #3399cc; }
 
 .title {
-  margin-top: 20px;
+  padding-top: 20px;
+  margin-top: 0;
   font-size: 5em;
   text-align: center;
   font-weight: 200; }
@@ -29,43 +31,50 @@ a:hover {
 #details-panel {
   height: 100%;
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: auto;
   top: 0;
   left: 0;
   width: 20%;
   background-color: #e4eaef;
-  z-index: 1; }
+  z-index: 1;
+  display: block; }
 
 @media only screen and (max-device-width: 340px), (max-width: 800px) {
   #details-panel {
     width: 50%; } }
 #details-toggle {
-  display: block;
-  position: fixed;
-  top: 50px;
-  background-color: #e4eaef;
-  -webkit-border-top-right-radius: 10px;
-  -webkit-border-bottom-right-radius: 1px;
-  -moz-border-radius-topright: 10px;
-  -moz-border-radius-bottomright: 1px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  z-index: 1; }
-  #details-toggle img {
-    width: 64px; }
+  display: none; }
 
-.details-toggle-max {
-  left: 20% !important; }
+@media only screen and (max-device-width: 340px), (max-width: 800px) {
+  #details-toggle {
+    cursor: pointer;
+    display: block;
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    background-color: #e4eaef;
+    -webkit-border-top-right-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -moz-border-radius-bottomright: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    z-index: 1; }
+    #details-toggle img {
+      width: 32px; } }
+#details-toggle:hover {
+  background: -webkit-linear-gradient(left, #e4eaef, #D3DFE8);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #e4eaef, #D3DFE8);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #e4eaef, #D3DFE8);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #e4eaef, #D3DFE8);
+  /* Standard syntax */ }
 
 @media only screen and (max-device-width: 340px) {
   #details-toggle img {
-    width: 128px; }
-
-  .details-toggle-max {
-    left: 50% !important; } }
-@media only screen and (max-width: 800px) {
-  .details-toggle-max {
-    left: 50% !important; } }
+    width: 80px; } }
 .data-input {
   margin-top: 35%; }
 
@@ -147,7 +156,10 @@ div {
   border: 1px solid #3399cc; }
 
 #main-panel {
-  width: 100%; }
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: auto; }
 
 @media only screen and (max-device-width: 340px) {
   #main-panel {
@@ -173,8 +185,8 @@ div {
 
 #footer {
   clear: both;
-  height: 5%;
-  margin-top: 10%;
+  padding-top: 5em;
+  padding-bottom: 1em;
   text-align: center;
   font-weight: 100; }
 
